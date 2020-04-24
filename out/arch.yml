@@ -1,0 +1,75 @@
+input_shape:
+  dims: 4
+  name: input_0
+  shape:
+  - 1
+  - 80
+  - 80
+  - 4
+layers:
+- attributes:
+  - data:
+    - 8
+    - 8
+    name: kernel_shape
+  - data:
+    - 4
+    - 4
+    name: strides
+  - data: 0
+    name: activation
+  op_name: quant_conv2d
+- attributes:
+  - data: 0.999
+    name: momentum
+  op_name: batch_normalization
+- attributes:
+  - data:
+    - 4
+    - 4
+    name: kernel_shape
+  - data:
+    - 2
+    - 2
+    name: strides
+  - data: 0
+    name: activation
+  op_name: quant_conv2d
+- attributes:
+  - data: 0.999
+    name: momentum
+  op_name: batch_normalization
+- attributes:
+  - data:
+    - 3
+    - 3
+    name: kernel_shape
+  - data:
+    - 1
+    - 1
+    name: strides
+  - data: 0
+    name: activation
+  op_name: quant_conv2d
+- attributes:
+  - data: 0.999
+    name: momentum
+  op_name: batch_normalization
+- attributes: []
+  op_name: flatten
+- attributes:
+  - data: 512
+    name: units
+  - data: 0
+    name: activation
+  op_name: quant_dense
+- attributes:
+  - data: 0.999
+    name: momentum
+  op_name: batch_normalization
+- attributes:
+  - data: 3
+    name: units
+  - data: 0
+    name: activation
+  op_name: quant_dense
